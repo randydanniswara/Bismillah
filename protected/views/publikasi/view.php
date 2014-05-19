@@ -3,28 +3,40 @@
 /* @var $model Publikasi */
 
 $this->breadcrumbs=array(
-	'Publikasis'=>array('index'),
+	'Publikasi'=>array('index'),
 	$model->id,
-);
+);?>
 
-$this->menu=array(
-	array('label'=>'List Publikasi', 'url'=>array('index')),
-	array('label'=>'Create Publikasi', 'url'=>array('create')),
-	array('label'=>'Update Publikasi', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Publikasi', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Publikasi', 'url'=>array('admin')),
-);
-?>
+<h3>Publikasi <?php echo $model->judul; ?></h3>
 
-<h1>View Publikasi #<?php echo $model->id; ?></h1>
+<div>
+<table class="tab-lab">
+	<tr>
+		<td width="150px">Judul Publikasi</td>
+		<td>:</td>
+		<td><?php echo $model->judul; ?></td>
+	</tr>
+	<tr>
+		<td width="150px">Pengarang</td>
+		<td>:</td>
+		<td><?php echo $model->pengarang; ?></td>
+	</tr>
+	<tr>
+		<td width="150px">Tahun</td>
+		<td>:</td>
+		<td><?php echo $model->tahun; ?></td>
+	</tr>
+</table>
+</div>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'tahun',
-		'pengarang',
-		'judul',
-		'id_lab',
-	),
-)); ?>
+
+</div>
+</div>
+
+<div class="span2">
+    <div id="rightmenu">
+        <ul>
+               <li><a href="">Delete Publikasi</a></li>
+        </ul>
+    </div><!-- sidebar -->
+</div>

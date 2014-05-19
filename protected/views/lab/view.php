@@ -72,10 +72,13 @@ $this->breadcrumbs=array(
 		<td>
 			<?php 
 		
+			/*$nama=LabUser::model()->findAll(Yii::app()->$model->id);*/
+
 			if (array_key_exists($model->id, $this->listAnggota)) {
 				$list = $this->listAnggota[$model->id];
 				foreach ($list as $anggota) {
-					echo "<li>$anggota</li>";	
+					/*echo "<li><a href=\"/Bismillah/profil/view/id/".$nama->id_user."\">$anggota</a></li>";*/
+					echo "<li><a href=\"/Bismillah/profil/view/id/".$model->id."\">$anggota</a></li>";	
 				}
 			}
 		

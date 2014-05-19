@@ -8,15 +8,10 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h3>View Kegiatan <?php echo $model->nama; ?></h3>
+<h3>Kegiatan <?php echo $model->nama; ?></h3>
 
 <div>
 <table class="tab-lab">
-	<tr>
-		<td width="150px">Id Kegiatan</td>
-		<td>:</td>
-		<td><?php echo $model->id; ?></td>
-	</tr>
 	<tr>
 		<td width="150px">Nama Kegiatan</td>
 		<td>:</td>
@@ -38,4 +33,16 @@ $this->breadcrumbs=array(
 		<td><?php echo $model->waktu_kegiatan; ?></td>
 	</tr>
 </table>
+</div>
+
+
+</div>
+</div>
+
+<div class="span2">
+    <div id="rightmenu">
+        <ul>
+               <li><a href="">Delete Kegiatan</a></li>
+        </ul>
+    </div><!-- sidebar -->
 </div>

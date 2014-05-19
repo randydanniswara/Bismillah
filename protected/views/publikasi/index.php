@@ -45,7 +45,7 @@ $labs = LabUser::model()->findAll("id_lab=".$id);
 
 <?php
 
-if (TRUE) {
+/*if (TRUE) {
 	echo "<style>.summary{display:none;}</style>";
 	$tmp = Publikasi::model()->getAllData();
 	$this->Widget('ext.highcharts.HighchartsWidget', array(
@@ -69,7 +69,7 @@ if (TRUE) {
 	      )
 	   )
 	));
-}
+}*/
 
 if($ada){ ?>
 </div>

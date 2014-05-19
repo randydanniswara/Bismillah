@@ -10,7 +10,9 @@ $this->breadcrumbs=array(
 ?>
 
 
-<h3>Update Lab <?php echo $model->id; ?></h3>
+<h3>Update <?php echo $model->nama; ?></h3>
+
+<?php $this->renderPartial('_form', array('model'=>$model,'list'=>$list)); ?>
 
 </div>
 </div>
@@ -25,5 +27,3 @@ $this->breadcrumbs=array(
 	</div><!-- sidebar -->
 <?php } ?>
 </div>
-
-<?php $this->renderPartial('_form', array('model'=>$model,'list'=>$list)); ?>

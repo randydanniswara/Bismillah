@@ -4,7 +4,7 @@
  
 $this->breadcrumbs=array(
 	'Lab'=>array('/lab/index'),
-        'Aset'=>array('/aset/id','id'=>$model->id),
+        'Aset'=>array('/aset/id/'.$model->id_lab),
         'Manage',
 );?>
  
@@ -37,9 +37,8 @@ $this->breadcrumbs=array(
 
 <div class="span2">
 	<div id="rightmenu">
-		<ul>
-			<li><a href="/Bismillah/aset/create">Create Aset</a></li>
-		</ul>
+        	<ul>
+                <li><a href="/Bismillah/aset/create">Create Aset</a></li>
+        	</ul>
 	</div><!-- sidebar -->
-
 </div>

@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h3>Update Profil</h3>
+<h3>Edit Profil</h3>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 

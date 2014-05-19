@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<div class="row">
-			<td><?php echo $form->labelEx($model,'ttl'); ?>
+			<td><?php echo $form->labelEx($model,'tanggal lahir'); ?>
 			<td><?php
 				$this->widget('zii.widgets.jui.CJuiDatePicker',
 				array(

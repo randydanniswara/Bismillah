@@ -7,13 +7,18 @@ $this->breadcrumbs=array(
 	'Dokumen',
 );?>
 
-<h1>Dokumen</h1>
-
-
+<h3>Dokumen</h3>
 <div class="list-lab">
-	<?php
-    $id = LabUser::model()->find("id_user=".Yii::app()->user->id)->id_lab;
-    $ada = TRUE;
+<?php 
+    $labs = LabUser::model()->findAll("id_lab=".$id);
+    $tmp = array();
+    foreach ($labs as $key) {
+        $tmp[] = $key->id_user;
+    }
+    $ada = FALSE;
+    if (in_array(intval(Yii::app()->user->id), $tmp)) {
+        $ada = TRUE;
+    }
     $this->widget('zii.widgets.CMenu',array(
     'activeCssClass'=>'active',
             'activateParents'=>true,
@@ -34,18 +39,20 @@ $this->breadcrumbs=array(
 )); ?>
 </div>
 
+<?php if($ada){ ?>
 </div>
 </div>
 
 <div class="span2">
-	<div id="rightmenu">
-		<ul>
-			<?php if(Yii::app()->user->getRole()==2) { ?>
-				<li><a href="/Bismillah/dokumen/create">Create Dokumen</a></li>
-				<li><a href="/Bismillah/dokumen/admin">Manage Dokumen</a></li>
-			<?php } ?>
+    <div id="rightmenu">
+        <ul>
+                <li><a href="/Bismillah/dokumen/create">Create Dokumen</a></li>
+                <li><a href="/Bismillah/dokumen/admin">Manage Dokumen</a></li>
+            
+        </ul>
+    </div><!-- sidebar -->
 
-			<li><a href="/Bismillah/dokumen/pdf">Download PDF</li>
-		</ul>
-	</div><!-- sidebar -->
 </div>
+<?php
+}
+?>

@@ -49,7 +49,7 @@ $this->breadcrumbs=array(
              ),
         )); ?>
 
-<?php if(Yii::app()->user->getRole()==2){ ?>
+
     </div>
     </div>
 
@@ -57,12 +57,9 @@ $this->breadcrumbs=array(
         <div id="rightmenu">
             <ul>
                     <li><a href="/Bismillah/aset/create">Create Aset</a></li>
-                    <li><a href="/Bismillah/aset/admin">Manage Aset</a></li>
-                
+                    <?php if(Yii::app()->user->getRole()==2){ ?>
+                       <li><a href="/Bismillah/aset/admin">Manage Aset</a></li>
+                    <?php } ?>
             </ul>
         </div><!-- sidebar -->
-
     </div>
-<?php
-}
-?>

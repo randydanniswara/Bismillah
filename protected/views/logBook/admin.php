@@ -35,6 +35,7 @@ $('.search-form form').submit(function(){
 		'id_anggota',
 		array(
 			'class'=>'CButtonColumn',
+			'template'=>'{delete}',
 		),
 	),
 )); ?>

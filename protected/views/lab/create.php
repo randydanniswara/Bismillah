@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 		<ul>
 			<li><a href="/Bismillah/lab/index">List Lab</a></li>
 			<li><a href="/Bismillah/lab/admin">Manage Lab</a></li>
-			<li><a href="#">View Statistic</a></li>
+			<li><a href="/Bismillah/lab/stats">View Statistic</a></li>
 		</ul>
 	</div><!-- sidebar -->
 <?php } ?>

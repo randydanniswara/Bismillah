@@ -769,6 +769,12 @@ li {
   -moz-box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
+  .prof table {
+    margin-bottom: -5px;
+  }
+  .prof table td{
+    vertical-align: top
+  }
 
 /* manage (grid-aset view) */
 #grid-loading
@@ -1342,6 +1348,154 @@ li {
   width: 50px;
 }
 #grid-logbook_c4 {
+  width: 50px;
+}
+
+#grid-prof-loading
+{
+  background:url(loading.gif) no-repeat;
+}
+
+#grid-prof
+{
+  padding: 0;
+}
+
+#grid-prof table.items
+{
+  background: white;
+  border-collapse: collapse;
+  width: 100%;
+  border: 0;
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+#grid-prof table.items th, #grid-prof table.items td
+{
+  font-size: 0.9em;
+  border: 0;
+  padding: 0.3em;
+  vertical-align: top;
+}
+
+#grid-prof table.items th
+{
+  color: black;
+  background: linear-gradient(#e5e5e5 0%, #dddddd 100%);
+  text-align: center;
+}
+
+#grid-prof table.items th a
+{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#grid-prof table.items th a:hover
+{
+  color: #4a5662;
+}
+
+#grid-prof table.items th a.asc
+{
+  background:url(up.gif) right center no-repeat;
+  padding-right: 10px;
+}
+
+#grid-prof table.items th a.desc
+{
+  background:url(down.gif) right center no-repeat;
+  padding-right: 10px;
+}
+
+#grid-prof table.items tr.even
+{
+  background: #F8F8F8;
+}
+
+#grid-prof table.items tr.odd
+{
+  background: #F8F8F8;
+}
+
+#grid-prof table.items tr.selected
+{
+  background: #BCE774;
+}
+
+#grid-prof table.items tr:hover.selected
+{
+  background: #CCFF66;
+}
+
+#grid-prof table.items tbody tr:hover
+{
+  background: #ECFBD4;
+}
+
+#grid-prof .link-column img
+{
+  border: 0;
+}
+
+#grid-prof .button-column
+{
+  text-align: center;
+  width: 60px;
+}
+
+#grid-prof .button-column img
+{
+  border: 0;
+}
+
+#grid-prof .checkbox-column
+{
+  width: 15px;
+}
+
+#grid-prof .summary
+{
+  margin: 0 0 5px 0;
+  text-align: right;
+}
+
+#grid-prof .pager
+{
+  margin: 5px 0 0 0;
+  text-align: right;
+}
+
+#grid-prof .empty
+{
+  font-style: italic;
+}
+
+#grid-prof .filters input,
+#grid-prof .filters select
+{
+  border: 1px solid #ccc;
+}
+
+#grid-prof_c0 {
+  width: 30px;
+}
+#grid-prof_c1 {
+  width: 100px;
+}
+#grid-prof_c2 {
+  width: 100px;
+}
+#grid-prof_c3 {
+  width: 100px;
+}
+#grid-prof_c4 {
+  width: 150px;
+}
+#grid-prof_c5 {
   width: 50px;
 }
 

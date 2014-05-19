@@ -3,7 +3,7 @@
 /* @var $model Profil */
 
 $this->breadcrumbs=array(
-	'Profils'=>array('index'),
+	'Profil'=>array('index'),
 	$model->id,
 );
 
@@ -16,17 +16,43 @@ $this->breadcrumbs=array(
 );*/
 ?>
 
-<h1>View Profil #<?php echo $model->id; ?></h1>
+<h3>Profil <?php echo $model->nama_depan." ".($model->nama_belakang); ?></h3>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'nama_depan',
-		'nama_belakang',
-		'ttl',
-		'alamat',
-		'telp',
-		'avatar',
-	),
-)); ?>
+
+
+<div>
+<table class="tab-lab">
+	<!-- hapus -->
+	<tr>
+		<td width="150px">Id Profil</td>
+		<td>:</td>
+		<td width="545px"><?php echo $model->id; ?></td>
+	</tr>
+	<!-- batas hapus -->
+	<tr>
+		<td width="200px">Nama Depan</td>
+		<td>:</td>
+		<td><?php echo $model->nama_depan ?></td>
+	</tr><tr>
+		<td>Nama Belakang</td>
+		<td>:</td>
+		<td><?php echo $model->nama_belakang; ?></td>
+	</tr><tr>
+		<td>Tanggal Lahir</td>
+		<td>:</td>
+		<td><?php echo $model->ttl; ?></td>
+	</tr><tr>
+		<td>Alamat</td>
+		<td>:</td>
+		<td><?php echo $model->alamat; ?></td>
+	</tr><tr>
+		<td>No. Telepon</td>
+		<td>:</td>
+		<td><?php echo $model->telp; ?></td>
+	</tr><tr>
+		<td>Avatar</td>
+		<td>:</td>
+		<td><?php echo $model->avatar; ?></td>
+	</tr>
+</table>
+</div>

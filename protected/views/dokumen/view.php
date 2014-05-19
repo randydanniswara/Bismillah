@@ -5,26 +5,38 @@
 $this->breadcrumbs=array(
 	'Dokumens'=>array('index'),
 	$model->id,
-);
+);?>
 
-$this->menu=array(
-	array('label'=>'List Dokumen', 'url'=>array('index')),
-	array('label'=>'Create Dokumen', 'url'=>array('create')),
-	array('label'=>'Update Dokumen', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Dokumen', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Dokumen', 'url'=>array('admin')),
-);
-?>
+<h3>Dokumen <?php echo $model->nama;?></h3>
 
-<h1>View Dokumen #<?php echo $model->id; ?></h1>
+<div>
+<table class="tab-lab">
+	<tr>
+		<td width="150px">Nama Dokumen</td>
+		<td>:</td>
+		<td><?php echo $model->nama; ?></td>
+	</tr>
+	<tr>
+		<td width="150px">Waktu</td>
+		<td>:</td>
+		<td><?php echo $model->waktu; ?></td>
+	</tr>
+	<tr>
+		<td width="150px">Nama File</td>
+		<td>:</td>
+		<td><?php echo $model->isi; ?></td>
+	</tr>
+</table>
+</div>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'nama',
-		'waktu',
-		'id_lab',
-		'isi',
-	),
-)); ?>
+
+</div>
+</div>
+
+<div class="span2">
+    <div id="rightmenu">
+        <ul>
+               <li><a href="">Delete Dokumen</a></li>
+        </ul>
+    </div><!-- sidebar -->
+</div>

@@ -38,8 +38,6 @@
 						$nama=Profil::model()->findByPk(Yii::app()->user->id);
 						$namadpn=$nama->nama_depan;
 						$namadpn=$namadpn." ".($nama->nama_belakang);
-
-						
 					?>
 					<?php echo 'Hello, '.$namadpn;
 					if (Yii::app()->user->getRole()==1){ ?>

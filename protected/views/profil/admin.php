@@ -3,7 +3,7 @@
 /* @var $model Profil */
 
 $this->breadcrumbs=array(
-	'Profils'=>array('index'),
+	'Profil'=>array('index'),
 	'Manage',
 );
 
@@ -25,14 +25,8 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-<h3>Update your profile</h3>
-<!--
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p> -->
+<h3>Manage Profile</h3>
 
-<?php /*echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); */?>
 <div class="search-form" style="display:none">
 <?php 
 /*$this->renderPartial('_search',array(
@@ -41,7 +35,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'profil-grid',
+	'id'=>'grid-prof',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
@@ -54,6 +48,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'avatar',
 		array(
 			'class'=>'CButtonColumn',
+			'template'=>'{view}{delete}',
 		),
 	),
 )); ?>

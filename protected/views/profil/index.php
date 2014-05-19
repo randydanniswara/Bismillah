@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Profils',
+	'Profil',
 );
 
 ?>
@@ -17,13 +17,14 @@ $c = 1;
 $URL_AVATAR = Yii::app()->request->baseUrl.'/assets/avatar/';
 	foreach ($model as $key => $value) {
 		// if ($c == 1) echo $value."<br>";
-		if ($c == 2) echo "<h4>".$value." ";
-		if ($c == 3) echo $value."</h4>";
-		if ($c == 4) echo "Tempat tanggal lahir : ".$value."<br>";
-		if ($c == 5) echo "Alamat :".$value."<br>";
-		if ($c == 6) echo "Telp : ".$value."<br>";
-		if ($c == 7) echo  "<img src='".$URL_AVATAR.$value."'>";
-		$c++;
+		?><table><?php
+		if ($c == 2) echo "<tr><td width='100px'>Nama Depan<td width='10px'>:</td><td width='500px'>".$value."</td>";
+		if ($c == 3) echo "<tr><td width='100px'>Nama Belakang<td width='10px'>:</td><td width='500px'>".$value."</td>";
+		if ($c == 4) echo "<tr><td width='100px'>Tanggal Lahir <td width='10px'>:</td><td width='500px'>".$value."</td>";
+		if ($c == 5) echo "<tr><td width='100px'>Alamat</td><td width='10px'>:</td><td width='500px'>".$value."</td>";
+		if ($c == 6) echo "<tr><td width='100px'>Telp</td><td width='10px'>:</td><td width='500px'>".$value."</td>";
+		if ($c == 7) echo  "<tr><td width='100px'>Foto</td><td width='10px'>:</td><td width='500px'><img src='".$URL_AVATAR.$value."'>";
+		$c++;?></table><?php
 	}
 
 echo "<br>";
@@ -41,6 +42,8 @@ if ($lab != NULL) {
 	}
 }
 echo "<br>";
-echo CHtml::link('Edit',array('profil/update','id'=>Yii::app()->user->id),array('class'=>'button')); 
+?><div class="button"><?php
+echo CHtml::link('Edit',array('profil/update','id'=>Yii::app()->user->id)); 
 ?>
+</div>
 </div>
