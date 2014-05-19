@@ -1,0 +1,11 @@
+Step Tugas Individu 2 :
+1. Import.csv delimeter diganti jadi koma
+2. atribut awal diubah menjadi id
+3. atribut terakhir diubah jadi label
+4. preprocessing
+5. validation (cross validation -> double click)
+	> letakkan model 'Decision Tree' pada kotak training
+	> letakkan 'Apply Model' pada kotak testing
+	> letakkan 'Performance' pada kotak testing
+	> Hubungkan kabel decision tree dg apply model
+	> hubungkan kabel apply model dg performance
