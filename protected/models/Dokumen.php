@@ -101,6 +101,23 @@ class Dokumen extends CActiveRecord
 		));
 	}
 
+	public function privateSearch($id)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('nama',$this->nama,true);
+		$criteria->compare('waktu',$this->waktu,true);
+		$criteria->compare('id_lab',$id);
+		$criteria->compare('isi',$this->isi,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -110,5 +127,27 @@ class Dokumen extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getAllData(){
+		$tmp = self::model()->findAll();
+		$max = 0;
+		$result = NULL;
+		foreach ($tmp as $key) {
+			$nama = Lab::model()->getNamaLab($key->id_lab);
+			$result["$nama"] = isset($result["$nama"]) ? $result["$nama"]+1 : 1;
+		}
+		return $result;
+	}
+
+	public function getAllDataTahun($id_lab){
+		$tmp = self::model()->findAll("id_lab=".$id_lab);
+		$max = 0;
+		$result = NULL;
+		foreach ($tmp as $key) {
+			$year = intval(substr($key->waktu, 0,4));
+			$result[$year] = isset($result[$year]) ? $result[$year]+1 : 1;
+		}
+		return $result;
 	}
 }

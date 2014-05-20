@@ -35,7 +35,7 @@ class PesanController extends Controller
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('create','sent'),
 				'users'=>array('@'),
-				'expression'=>'$user->getRole()==2',
+				'expression'=>'$user->getRole()<=2',
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

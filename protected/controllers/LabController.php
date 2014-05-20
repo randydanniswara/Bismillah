@@ -86,7 +86,7 @@ class LabController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
-
+		
 		$list = User::model()->getAllKetua();
 		$this->render('create',array(
 			'model'=>$model,
@@ -94,7 +94,7 @@ class LabController extends Controller
 		));
 	}
 
-
+	
 
 	/**
 	 * Updates a particular model.

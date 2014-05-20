@@ -32,12 +32,11 @@ $this->breadcrumbs=array(
         )); ?>
     </div>
 
-<div class="profil-lab">
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
-</div>
+<br>
 
 <?php if($ada){ ?>
 </div>
@@ -54,5 +53,32 @@ $this->breadcrumbs=array(
 
 </div>
 <?php
+}
+?>
+<?php
+    if(isset($this->id)){
+    $tmp = Dokumen::model()->getAllDataTahun($id);
+    //echo "ada gak? : ".var_dump($tmp);return;
+    $this->Widget('ext.highcharts.HighchartsWidget', array(
+       'options'=>array(
+          'chart' => array('type'=> 'column'),
+          'title' => array('text' => 'Jumlah Dokumen Per Tahun'),
+          'htmlOptions' => array(
+            'width'=>200,
+            'height'=>300
+          ),
+          'xAxis' => array(
+             'title' => array('text'=>'Tahun'),
+             'categories' => array_keys($tmp)
+          ),
+          'yAxis' => array(
+             'title' => array('text' => 'Jumlah Dokumen')
+          ),
+          'series' => array(
+             array('data' => array_values($tmp),'name'=>"Jumlah Dokumen"),
+             // array('data' => array(6),'name' => 'Lab 02')    
+          )
+       )
+    ));
 }
 ?>

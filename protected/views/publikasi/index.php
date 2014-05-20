@@ -45,32 +45,6 @@ $labs = LabUser::model()->findAll("id_lab=".$id);
 
 <?php
 
-/*if (TRUE) {
-	echo "<style>.summary{display:none;}</style>";
-	$tmp = Publikasi::model()->getAllData();
-	$this->Widget('ext.highcharts.HighchartsWidget', array(
-	   'options'=>array(
-	   	  'chart' => array('type'=> 'column'),
-	      'title' => array('text' => 'Jumlah Publikasi Per Lab'),
-	      'htmlOptions' => array(
-	      	'width'=>200,
-	      	'height'=>300
-	      ),
-	      'xAxis' => array(
-	         'title' => array('text'=>'Nama Lab'),
-	         'categories' => array_keys($tmp)
-	      ),
-	      'yAxis' => array(
-	         'title' => array('text' => 'Jumlah Publikasi')
-	      ),
-	      'series' => array(
-	         array('data' => array_values($tmp),'name'=>"Jumlah Publikasi"),
-	         // array('data' => array(6),'name' => 'Lab 02')    
-	      )
-	   )
-	));
-}*/
-
 if($ada){ ?>
 </div>
 </div>
@@ -87,3 +61,31 @@ if($ada){ ?>
 </div>
 <?php
 }
+
+	echo "<style>.summary{display:none;}</style>";
+	$tmp = Publikasi::model()->getAllDataTahun($this->id);
+if(isset($this->id) && isset($tmp)){
+	//echo "ada gak? : ".var_dump($tmp);return;
+	$this->Widget('ext.highcharts.HighchartsWidget', array(
+	   'options'=>array(
+	   	  'chart' => array('type'=> 'column'),
+	      'title' => array('text' => 'Jumlah Publikasi Per Tahun'),
+	      'htmlOptions' => array(
+	      	'width'=>200,
+	      	'height'=>300
+	      ),
+	      'xAxis' => array(
+	         'title' => array('text'=>'Tahun'),
+	         'categories' => array_keys($tmp)
+	      ),
+	      'yAxis' => array(
+	         'title' => array('text' => 'Jumlah Publikasi')
+	      ),
+	      'series' => array(
+	         array('data' => array_values($tmp),'name'=>"Jumlah Publikasi"),
+	         // array('data' => array(6),'name' => 'Lab 02')    
+	      )
+	   )
+	));
+}
+?>

@@ -42,17 +42,17 @@ $this->breadcrumbs=array(
 </td>
 </tr>
 <tr>
-	<td>Penerima</td>
+	<!-- <td>Penerima</td>
 	<td>:<td>
 		<td>
-<?php
+	<?php
 	if (Yii::app()->user->id == $model->id_sent){
 		foreach ($this->x as $k) {
 			echo $k."<br>";
 		}
 	}
-?>
-</td>
+	?>
+	</td> -->
 </tr>
 </table>
 </div

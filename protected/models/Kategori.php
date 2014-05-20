@@ -28,7 +28,7 @@ class Kategori extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, nama', 'required'),
+			array('nama', 'required'),
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('nama', 'length', 'max'=>50),
 			// The following rule is used by search().
@@ -96,4 +96,15 @@ class Kategori extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getAll() {
+		$x = self::model()->findAll();
+		$tmp = array();
+		foreach ($x as $key) {
+			$tmp[$key->id] = $key->nama;
+		}
+
+		return $tmp;
+	}
+
 }

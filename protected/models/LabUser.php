@@ -94,4 +94,13 @@ class LabUser extends CActiveRecord
 		return parent::model($className);
 	}
 
+	public function getAllLab($id_user){
+		$x = self::model()->findAll("id_user=".$id_user);
+		$tmp = array();
+		foreach ($x as $key) {
+			$tmp[$key->id_lab] = Lab::model()->getNamaLab($key->id_lab);
+		}
+		return $tmp;
+	}
+
 }

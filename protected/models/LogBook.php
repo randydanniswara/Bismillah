@@ -9,6 +9,7 @@
  * @property integer $id_lab
  * @property string $isi
  * @property integer $id_anggota
+ * @property string $waktu
  *
  * The followings are the available model relations:
  * @property Aktivitas[] $aktivitases
@@ -34,13 +35,14 @@ class LogBook extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('judul, id_lab, id_anggota', 'required'),
+			array('judul, id_lab, id_anggota, waktu', 'required'),
 			array('id_lab, id_anggota', 'numerical', 'integerOnly'=>true),
 			array('judul', 'length', 'max'=>30),
+			array('waktu', 'length', 'max'=>32),
 			array('isi', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, judul, id_lab, isi, id_anggota', 'safe', 'on'=>'search'),
+			array('id, judul, id_lab, isi, id_anggota, waktu', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +72,7 @@ class LogBook extends CActiveRecord
 			'id_lab' => 'Id Lab',
 			'isi' => 'Isi',
 			'id_anggota' => 'Id Anggota',
+			'waktu' => 'Waktu',
 		);
 	}
 
@@ -96,12 +99,30 @@ class LogBook extends CActiveRecord
 		$criteria->compare('id_lab',$this->id_lab);
 		$criteria->compare('isi',$this->isi,true);
 		$criteria->compare('id_anggota',$this->id_anggota);
+		$criteria->compare('waktu',$this->waktu,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
+	public function privateSearch($id)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('judul',$this->judul,true);
+		$criteria->compare('id_lab',$id);
+		$criteria->compare('isi',$this->isi,true);
+		$criteria->compare('id_anggota',$this->id_anggota);
+		$criteria->compare('waktu',$this->waktu,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

@@ -23,9 +23,11 @@ $('.search-form form').submit(function(){
 
 <h3>Manage Log Book</h3>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php 
+$lab = Lab::model()->find("id_ketua=".Yii::app()->user->id)->id;
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'grid-logbook',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->privateSearch($lab),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',

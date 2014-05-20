@@ -56,7 +56,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'pgsql:host=localhost;dbname=bismillah',
+			'connectionString' => 'pgsql:host=localhost;dbname=propensi',
 			'emulatePrepare' => true,
 			'username' => 'postgres',
 			'password' => 'postgres',

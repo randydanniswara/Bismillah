@@ -49,6 +49,7 @@ class PublikasiController extends Controller
 					'condition'=>'id_lab='.$id,
 				)
 		));
+		// echo var_dump(Publikasi::model()->find("id_lab=".$id));return;
 		$this->id = $id;
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
@@ -102,6 +103,7 @@ class PublikasiController extends Controller
 				$pub_user->id_publikasi = intval($model->id);
 				$pub_user->id_user = Yii::app()->user->id;
 				$pub_user->save();
+				Yii::app()->user->setFlash('create','Publikasi berhasil diunggah');
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -142,6 +144,7 @@ class PublikasiController extends Controller
 			unlink($delete);
 			//echo var_dump($model);return;
 			if($model->save()) {
+				Yii::app()->user->setFlash('update','Publikasi berhasil diupdate');
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}

@@ -101,6 +101,20 @@ class Publikasi extends CActiveRecord
 		));
 	}
 
+	public function privateSearch($id_lab){
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('tahun',$this->tahun);
+		$criteria->compare('pengarang',$this->pengarang,true);
+		$criteria->compare('judul',$this->judul,true);
+		$criteria->compare('id_lab',$id_lab);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -119,6 +133,16 @@ class Publikasi extends CActiveRecord
 		foreach ($tmp as $key) {
 			$nama = Lab::model()->getNamaLab($key->id_lab);
 			$result["$nama"] = isset($result["$nama"]) ? $result["$nama"]+1 : 1;
+		}
+		return $result;
+	}
+
+	public function getAllDataTahun($id_lab){
+		$tmp = self::model()->findAll("id_lab=".$id_lab);
+		$max = 0;
+		$result = NULL;
+		foreach ($tmp as $key) {
+			$result[$key->tahun] = isset($result[$key->tahun]) ? $result[$key->tahun]+1 : 1;
 		}
 		return $result;
 	}

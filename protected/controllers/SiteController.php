@@ -30,6 +30,11 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$role = User::model()->findByPk((int)Yii::app()->user->id);
+
+		$dataProvider= Profil::model()->findByPk((int)Yii::app()->user->id);
+		if ($dataProvider == NULL) $this->redirect(array('profil/index'));
+
+
 		$this->render('index', array('role'=>$role));
 	}
 

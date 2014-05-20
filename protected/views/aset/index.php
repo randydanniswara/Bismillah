@@ -63,3 +63,34 @@ $this->breadcrumbs=array(
             </ul>
         </div><!-- sidebar -->
     </div>
+
+<?php
+
+
+    echo "<style>.summary{display:none;}</style>";
+if(isset($this->id)){
+    $tmp = Aset::model()->getAllDataTahun($this->id);
+    $this->Widget('ext.highcharts.HighchartsWidget', array(
+       'options'=>array(
+          'chart' => array('type'=> 'column'),
+          'title' => array('text' => 'Jumlah Aset Per Tahun'),
+          'htmlOptions' => array(
+            'width'=>200,
+            'height'=>300
+          ),
+          'xAxis' => array(
+             'title' => array('text'=>'Tahun'),
+             'categories' => array_keys($tmp)
+          ),
+          'yAxis' => array(
+             'title' => array('text' => 'Aset')
+          ),
+          'series' => array(
+             array('data' => array_values($tmp),'name'=>"Jumlah Aset"),
+             // array('data' => array(6),'name' => 'Lab 02')    
+          )
+       )
+    ));
+
+}
+?>

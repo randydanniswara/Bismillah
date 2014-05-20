@@ -105,4 +105,26 @@ class Aset extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getAllData(){
+		$tmp = self::model()->findAll();
+		$max = 0;
+		$result = NULL;
+		foreach ($tmp as $key) {
+			$nama = Lab::model()->getNamaLab($key->id_lab);
+			$result["$nama"] = isset($result["$nama"]) ? $result["$nama"]+$key->jumlah : $key->jumlah;
+		}
+		return $result;
+	}
+
+	public function getAllDataTahun($id_lab){
+		$tmp = self::model()->findAll("id_lab=".$id_lab);
+		$max = 0;
+		$result = NULL;
+		foreach ($tmp as $key) {
+			$result[$key->tahun] = isset($result[$key->tahun]) ? $result[$key->tahun]+$key->jumlah : $key->jumlah;
+		}
+		return $result;
+	}
+
 }

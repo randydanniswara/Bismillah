@@ -177,7 +177,7 @@ class DokumenController extends Controller
 	public function actionDelete($id)
 	{
 		$model  = $this->loadModel($id);
-
+		
 	 	$URL_AVATAR = '/../assets/dokumen/'.$model->id_lab."/";
 	 	$link   = Yii::app()->basePath.$URL_AVATAR.$model->isi;
 	 	unlink($link);

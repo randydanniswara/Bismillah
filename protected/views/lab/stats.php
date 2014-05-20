@@ -8,6 +8,7 @@
 	$this->Widget('ext.highcharts.HighchartsWidget', array(
 	   'options'=>array(
 	   	  'chart' => array('type'=> 'column'),
+	   	  'fill'=>'trasnparent',
 	      'title' => array('text' => 'Jumlah Publikasi Per Lab'),
 	      'htmlOptions' => array(
 	      	'width'=>200,
